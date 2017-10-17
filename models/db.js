@@ -1,7 +1,7 @@
 var chalk = require("chalk");
 var mongoose = require( "mongoose" );
 var webconfig = require('../config/serverconfig.js');
-var dbURI = webconfig.database_production;
+var dbURI = webconfig.database_local;
 require('../util/extensions.js');
 
 

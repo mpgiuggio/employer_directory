@@ -18,7 +18,7 @@ mongoose.connection.on("error",function (err) {
 
 mongoose.connection.on("disconnected", function () {
   console.log(chalk.yellow("Mongoose disconnected"));
-});
+}); 
 
 var employee_schema = new mongoose.Schema({
   name: String,

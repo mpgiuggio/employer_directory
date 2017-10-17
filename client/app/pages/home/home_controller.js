@@ -9,6 +9,8 @@ app.controller("home_controller", ["service", function(service) {
 			console.log(obj);
 		hc.employees = obj.data.data.data;
 	});
+
+
 	
 	hc.edit_employee = function(data) {
 		console.log("-----edit------");

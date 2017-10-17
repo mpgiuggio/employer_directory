@@ -6,8 +6,9 @@ var path = require("path");
 
 var webconfig = require('./config/serverconfig.js');
 require('./util/extensions.js');
-var db = require("./models/db.js");
-var api_employees = require("./api/employees/"); 
+//var db = require("./models/db.js");
+var db = require("./api/employees/employee_model.js")
+//var api_employees = require("./api/employees/"); 
 
 var app = express();
 app.set("view engine", "ejs");
