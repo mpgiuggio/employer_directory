@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Employee Directory</title>
+        
+        
+        <link rel="stylesheet" href="public/min_css/combined.min.css"/>
+     </head>
+
+    <body ng-app="employee_directory">
+    
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">Employee Directory</a>
+                <ul class="navbar-nav nav navbar-right">
+                    <li class="active">
+                        
+                        <a id="add_employee_btn" href="#/home/add_employee" data-toggle="modal" data-target="#create_employee">Add Employee</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        
+        <div class="container employees" ng-controller="home_controller as hc">
+            <div class="row"> 
+                <div class="col-lg-10" ng-repeat="emp in hc.employees track by $index">
+                    <div class="employee">
+                        <div class="name emp_data" ng-bind="emp.name"></div>
+                        <div class="email emp_data" ng-bind="emp.email"></div>
+                        <div class="age emp_data" ng-bind="emp.age"></div>
+                        <div class="gender emp_data" ng-bind="emp.gender"></div>
+                        <div class="department emp_data" ng-bind="emp.department"></div>
+                        <div class="date_of_birth emp_data">{{emp.date_of_birth | date:MM/dd/yyyy}}</div>
+ 
+                        <div class="btn_wrap">
+                            <div class="edit btn btn-primary" data-toggle="modal" data-target="#edit_employee" ng-click="hc.edit_employee(emp._id)">edit</div>
+                            <div class="delete btn btn-danger" ng-click="hc.remove_employee(emp._id)">delete</div>
+                        </div>
+
+                    </ul>
+                    
+                </div>
+            </div>
+        
+        
+            <div class="modal fade" id="create_employee">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Add New Employee</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    
+                        <input type="text" name="name" placeholder="Name" ng-model="hc.employee.name"/>
+                        <input type="text" name="email" placeholder="Email" ng-model="hc.employee.email"/>
+                        <input type="text" name="date_of_birth" placeholder="Date of Birth - MM/dd/YYYY" ng-model="hc.employee.date_of_birth"/>
+                        <input type="text" name="department" placeholder="Department" ng-model="hc.employee.department"/>
+                        <input type="text" name="gender" placeholder="Gender" ng-model="hc.employee.gender"/>
+                        
+                 
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="hc.create_employee(hc.employee)">Create Employee</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="edit_employee">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Update Employee</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    
+                        <input type="text" name="update_name" placeholder="Name" ng-model="hc.updated_employee.name"/>
+                        <input type="text" name="update_email" placeholder="Email" ng-model="hc.updated_employee.email"/>
+                        <input type="text" name="update_date_of_birth" placeholder="Date of Birth - MM/dd/YYYY" ng-model="hc.updated_employee.date_of_birth | date:'MM/dd/yyyy'"/>
+                        <input type="text" name="update_department" placeholder="Department" ng-model="hc.updated_employee.department"/>
+                        <input type="text" name="update_gender" placeholder="Gender" ng-model="hc.updated_employee.gender"/>
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="hc.update_employee(hc.updated_employee)">Update Employee</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+<!--
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>                                                           
+-->
+        <script src="public/min_js/combined.min.js"></script>
+        <!--<script src="/app/app.js"></script>-->
+        <script>
+            var app = angular.module('employee_directory', []);
+  
+        </script>
+        <script src="/app/services/service.js"></script>
+        <script src="/app/pages/home/home_controller.js"></script>
+
+    </body>
+
+</html>

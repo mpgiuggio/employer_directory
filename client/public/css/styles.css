@@ -1,0 +1,68 @@
+.employee {
+	border-bottom: 2px solid #cccccc;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	position: relative;
+}
+
+.emp_data:before {
+	content: "";
+	display: inline-block;
+	width: 100px;
+	margin-right: 20px;
+	font-style: italic;
+	color: #666666;
+}
+	.emp_data.name:before {
+		content: "Name:";
+	}
+	.emp_data.email:before {
+		content: "Email:";
+	}
+	.emp_data.age:before {
+		content: "Age:";
+	}
+	.emp_data.gender:before {
+		content: "Gender:";
+	}
+	.emp_data.department:before {
+		content: "Department:";
+	}
+	.emp_data.date_of_birth:before {
+		content: "Date of Birth:";
+	}
+
+	.employee .btn_wrap {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+	}
+
+	#create_employee input,
+	#edit_employee input {
+		width: 100%;
+		display: block;
+		margin-bottom: 20px;
+		line-height: 45px;
+		border-radius: 6px;
+		padding: 0 20px;
+		box-sizing: border-box;
+		border: 1px solid #cccccc;
+	}
+
+	#add_employee_btn {
+		background: #53D377;
+		color: #ffffff;
+		font-weight: bold;
+		letter-spacing: .02em;
+	}
+
+
+	@media only screen and (max-width: 550px) {
+		.employee .btn_wrap {
+			position: static;
+			margin-top: 20px;
+		}
+	}
+
+	
