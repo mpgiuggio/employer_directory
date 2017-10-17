@@ -33,7 +33,7 @@
                         <div class="age emp_data" ng-bind="emp.age"></div>
                         <div class="gender emp_data" ng-bind="emp.gender"></div>
                         <div class="department emp_data" ng-bind="emp.department"></div>
-                        <div class="date_of_birth emp_data">{{emp.date_of_birth | date:MM/dd/yyyy}}</div>
+                        <div class="date_of_birth emp_data">{{emp.date_of_birth | date:"MM/dd/yyyy"}}</div>
  
                         <div class="btn_wrap">
                             <div class="edit btn btn-primary" data-toggle="modal" data-target="#edit_employee" ng-click="hc.edit_employee(emp._id)">edit</div>
